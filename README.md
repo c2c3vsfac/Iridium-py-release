@@ -7,7 +7,7 @@ the package sniffer for genshin impact/yuanshen
 
 The principle can be found at [MagicSniffer](https://github.com/Sorapointa/MagicSniffer).
 
-# Usage
+## Usage
 
 下载，pip install pcapy，修改`config.json`, 运行，完成。
 
