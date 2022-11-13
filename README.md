@@ -1,4 +1,4 @@
-# Iridium31-py
+# Iridium-py-release
 the package sniffer for genshin impact/yuanshen
 
 **Special thanks to [tamilpp25](https://github.com/tamilpp25) and [unipendix](https://github.com/BUnipendix).**
