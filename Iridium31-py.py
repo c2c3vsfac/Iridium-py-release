@@ -80,7 +80,7 @@ def find_key():
                         t_data = list(zip(*sorted_frgs))[1]
                         for frg_data in t_data:
                             encrypted_windseed += frg_data
-                        offset = len(encrypted_windseed) - 58109
+                        offset = len(encrypted_windseed) - 56553
                         full_key = xor(encrypted_windseed[offset:], windseed_text)
                         keys = [full_key[i: i+4096] for i in range(4096-offset, len(full_key), 4096)]
                         decrypted_key = max(set(keys), key=keys.count)
@@ -170,12 +170,16 @@ def parse(decrypt_key):
                     #                     f_decrypt_data.write(str(argument_type) + " " + str(each_data["invoke_list"][0]['combat_data']) + "\n")
                     #                     # print(argument_type, each_data["invoke_list"][0]['combat_data'])
                     # else:
+
+                    # f_decrypt_data.write(str(proto_name) + " " + str(b_data) + "\n")
+
                     try:
                         data = pp.parse(b_data, str(packet_id))
                         f_decrypt_data.write(str(proto_name) + " " + str(data) + "\n")
                     except Exception:
                         print(str(proto_name) + " Error")
                         f_decrypt_data.write(str(proto_name) + " " + str(b_data) + "\n")
+
                     # print(proto_name, data)
 
 
