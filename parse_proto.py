@@ -103,9 +103,16 @@ def parse(byte_str, packet_id: str, *args):
                         if prop_name not in decode_data:
                             decode_data[prop_name] = []
                         map_data = parse(byte_str[i: i + length], packet_id, type_dict, map_private_prop_name)
+                        if "first" not in map_data:
+                            map_data["first"] = 0
+                        if "second" not in map_data:
+                            map_data["second"] = 0
+                        # decode_data[prop_name].append({map_data["first"]: map_data["second"]})
                         try:
                             decode_data[prop_name].append({map_data["first"]: map_data["second"]})
-                        except KeyError:
+                        except KeyError as e:
+                            print(e)
+                            print(packet_id)
                             print(map_data)
                     elif "repeated" in encoding_rules[data_id]:
                         if prop_names[data_id] not in decode_data:
@@ -146,7 +153,3 @@ def read_json_packet():
 
 
 all_serial = read_json_packet()
-ff = open("union_serialization.json", "r")
-union_serial = json.load(ff)
-all_serial.update(union_serial)
-
