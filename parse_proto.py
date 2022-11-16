@@ -107,7 +107,6 @@ def parse(byte_str, packet_id: str, *args):
                             map_data["first"] = 0
                         if "second" not in map_data:
                             map_data["second"] = 0
-                        # decode_data[prop_name].append({map_data["first"]: map_data["second"]})
                         try:
                             decode_data[prop_name].append({map_data["first"]: map_data["second"]})
                         except KeyError as e:
@@ -137,19 +136,21 @@ def parse(byte_str, packet_id: str, *args):
                             repeated_offset, repeated_data = repeated_data
                             j += repeated_offset
                             decode_data[prop_names[data_id]].append(repeated_data["1"])
-                        # else:
-                        #     decode_data[prop_names[data_id]].append(repeated_data["1"])
-                        #     break
                 i += length
             if len(args) == 3:
                 return i, decode_data
     return decode_data
 
 
-def read_json_packet():
-    f = open("packet_serialization.json", "r")
+def read_json_packet(json_name):
+    f = open(json_name, "r")
     serial = json.load(f)
     return serial
 
 
-all_serial = read_json_packet()
+all_serial = read_json_packet("packet_serialization.json")
+ucn = read_json_packet("ucn_serialization.json")
+all_serial.update(ucn)
+
+
+

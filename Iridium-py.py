@@ -25,8 +25,8 @@ def remove_magic(b_data):
         b_data = b_data[:len(b_data) - 2]
         b_data = b_data[cut2:]
         return b_data[cut1:]
-    except IndexError:
-        pass  # 特殊包
+    except IndexError as e:
+        print(e)
 
 
 def get_packet_id(b_data):
@@ -45,7 +45,8 @@ def get_proto_name_by_id(i_id):
     try:
         proto_name = d_pkt_id[str(i_id)]
         return proto_name
-    except KeyError:
+    except KeyError as e:
+        print(e)
         return False
 
 
@@ -82,7 +83,7 @@ def find_key():
                             encrypted_windseed += frg_data
                         offset = len(encrypted_windseed) - 56553
                         full_key = xor(encrypted_windseed[offset:], windseed_text)
-                        keys = [full_key[i: i+4096] for i in range(4096-offset, len(full_key), 4096)]
+                        keys = [full_key[i: i + 4096] for i in range(4096 - offset, len(full_key), 4096)]
                         decrypted_key = max(set(keys), key=keys.count)
                         pkg_parser = threading.Thread(target=parse, args=(decrypted_key,))
                         kcp_dealing = threading.Thread(target=handle_kcp, args=(id_key,))
@@ -143,42 +144,98 @@ def parse(decrypt_key):
                 proto_name = get_proto_name_by_id(packet_id)
                 b_data = remove_magic(b_data)
                 if proto_name:
-                    # if packet_id == 5:  # UnionCmdNotify(未完成)
-                    #     data = pp.parse(b_data, str(packet_id))
-                    #     for union_data in data["cmd_list"]:
-                    #         each_data = pp.parse(base64.b64decode(union_data["body"]), str(union_data["message_id"]))
-                    #         if 'invokes' in each_data:
-                    #             if 'argument_type' in each_data["invokes"][0]:
-                    #                 argument_type = each_data["invokes"][0]['argument_type']
-                    #                 if argument_type in union_cmd:
-                    #                     if 'ability_data' in each_data["invokes"][0]:
-                    #                         each_data["invokes"][0]['ability_data'] = pp.parse(base64.b64decode(each_data["invokes"][0]['ability_data']), union_cmd[argument_type])
-                    #                     # print(proto_name, each_data)
-                    #                     f_decrypt_data.write(str(proto_name) + " " + str(each_data) + "\n")
-                    #                 else:
-                    #                     f_decrypt_data.write(str(argument_type) + " " + str(each_data["invokes"][0]['ability_data']) + "\n")
-                    #                     # print(argument_type, each_data["invokes"][0]['ability_data'])
-                    #                 # print(each_data["invokes"][0]['argument_type'])
-                    #         elif 'invoke_list' in each_data:
-                    #             if 'argument_type' in each_data["invoke_list"][0]:
-                    #                 argument_type = each_data["invoke_list"][0]['argument_type']
-                    #                 if argument_type in union_cmd:
-                    #                     each_data["invoke_list"][0]['combat_data'] = pp.parse(base64.b64decode(each_data["invoke_list"][0]['combat_data']), union_cmd[argument_type])
-                    #                     # print(proto_name, each_data)
-                    #                     f_decrypt_data.write(str(proto_name) + " " + str(each_data) + "\n")
-                    #                 else:
-                    #                     f_decrypt_data.write(str(argument_type) + " " + str(each_data["invoke_list"][0]['combat_data']) + "\n")
-                    #                     # print(argument_type, each_data["invoke_list"][0]['combat_data'])
-                    # else:
+                    if packet_id == 5:
+                        union_list = []
+                        try:
+                            data = pp.parse(b_data, str(packet_id))
+                            for union_data in data["cmd_list"]:
+                                each_data = pp.parse(base64.b64decode(union_data["body"]),
+                                                     str(union_data["message_id"]))
+                                if 'invokes' in each_data:
+                                    if 'argument_type' in each_data["invokes"][0]:
+                                        argument_type = each_data["invokes"][0]['argument_type']
+                                        if argument_type in union_cmd:
+                                            if 'ability_data' in each_data["invokes"][0]:
+                                                each_data["invokes"][0]['ability_data'] = pp.parse(
+                                                    base64.b64decode(each_data["invokes"][0]['ability_data']),
+                                                    union_cmd[argument_type])
+                                            # print(proto_name, each_data)
+                                            # f_decrypt_data.write("AbilityInvocationsNotify " + str(each_data) + "\n")
+                                        else:
+                                            print("有未对应argument_type:" + str(argument_type))
+                                        union_list.append({"AbilityInvocationsNotify": each_data})
+                                            # f_decrypt_data.write(str(argument_type) + " " + str(
+                                            #     each_data["invokes"][0]['ability_data']) + "\n")
+                                            # print(argument_type, each_data["invokes"][0]['ability_data'])
+                                        # print(each_data["invokes"][0]['argument_type'])
+                                elif 'invoke_list' in each_data:
+                                    if 'argument_type' in each_data["invoke_list"][0]:
+                                        argument_type = each_data["invoke_list"][0]['argument_type']
+                                        if argument_type in union_cmd:
+                                            each_data["invoke_list"][0]['combat_data'] = pp.parse(
+                                                base64.b64decode(each_data["invoke_list"][0]['combat_data']),
+                                                union_cmd[argument_type])
+                                            # print(proto_name, each_data)
+                                            # f_decrypt_data.write("CombatInvocationsNotify " + str(each_data) + "\n")
+                                        else:
+                                            print("有未对应argument_type:" + str(argument_type))
+                                        union_list.append({"CombatInvocationsNotify": each_data})
+                                            # f_decrypt_data.write(str(argument_type) + " " + str(
+                                            #     each_data["invoke_list"][0]['combat_data']) + "\n")
+                                            # print(argument_type, each_data["invoke_list"][0]['combat_data'])
+                            f_decrypt_data.write("UnionCmdNotify " + str(union_list) + "\n")
+                        except Exception as e:
+                            f_decrypt_data.write(str(proto_name) + " " + str(b_data) + "\n")
+                            print(e)
+                    elif packet_id == 1198:
+                        try:
+                            data = pp.parse(b_data, str(packet_id))
+                            if 'invokes' in data:
+                                if 'argument_type' in data["invokes"][0]:
+                                    argument_type = data["invokes"][0]['argument_type']
+                                    if argument_type in union_cmd:
+                                        if 'ability_data' in data["invokes"][0]:
+                                            data["invokes"][0]['ability_data'] = pp.parse(
+                                                base64.b64decode(data["invokes"][0]['ability_data']),
+                                                union_cmd[argument_type])
+                                        # print(proto_name, each_data)
+                                        f_decrypt_data.write("AbilityInvocationsNotify " + str(data) + "\n")
+                                    else:
+                                        print("有未对应argument_type:" + str(argument_type))
+                                        f_decrypt_data.write(
+                                            str(argument_type) + " " + str(data["invokes"][0]['ability_data']) + "\n")
+                        except Exception as e:
+                            f_decrypt_data.write(str(proto_name) + " " + str(b_data) + "\n")
+                            print(e)
+                    elif packet_id == 319:
+                        combat_list = []
+                        try:
+                            data = pp.parse(b_data, str(packet_id))
+                            for invoke in data["invoke_list"]:
+                                argument_type = invoke['argument_type']
+                                if argument_type in union_cmd:
+                                    invoke['combat_data'] = pp.parse(
+                                        base64.b64decode(invoke['combat_data']), union_cmd[argument_type])
+                                # print(proto_name, each_data)
 
-                    # f_decrypt_data.write(str(proto_name) + " " + str(b_data) + "\n")
-
-                    try:
-                        data = pp.parse(b_data, str(packet_id))
-                        f_decrypt_data.write(str(proto_name) + " " + str(data) + "\n")
-                    except Exception:
-                        print(str(proto_name) + " Error")
-                        f_decrypt_data.write(str(proto_name) + " " + str(b_data) + "\n")
+                                    # f_decrypt_data.write("CombatInvocationsNotify " + str(invoke) + "\n")
+                                else:
+                                    print("有未对应argument_type:" + str(argument_type))
+                                combat_list.append(invoke)
+                                    # f_decrypt_data.write(
+                                    #     str(argument_type) + " " + str(invoke['combat_data']) + "\n")
+                            f_decrypt_data.write("CombatInvocationsNotify " + str(combat_list) + "\n")
+                        except Exception as e:
+                            f_decrypt_data.write(str(proto_name) + " " + str(b_data) + "\n")
+                            print(e)
+                    else:
+                        try:
+                            data = pp.parse(b_data, str(packet_id))
+                            f_decrypt_data.write(str(proto_name) + " " + str(data) + "\n")
+                        except Exception as e:
+                            print(str(proto_name) + " Error")
+                            print(e)
+                            f_decrypt_data.write(str(proto_name) + " " + str(b_data) + "\n")
 
                     # print(proto_name, data)
 
@@ -259,14 +316,14 @@ def read_config():
     return json.load(f)
 
 
-# def read_union_cmd():
-#     f = open("union_cmd.json", "r")
-#     return json.load(f)
+def read_union_cmd():
+    f = open("ucn_id.json", "r")
+    return json.load(f)
 
 
 config = read_config()
 windseed_text = read_windseed()
-# union_cmd = read_union_cmd()
+union_cmd = read_union_cmd()
 d_pkt_id = read_packet_id()
 sniff_datas = []
 packet = []
