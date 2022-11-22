@@ -279,7 +279,7 @@ def handle_kcp(id_key):
                     frg = data[9]
                     sn = int.from_bytes(data[16:20], byteorder="little", signed=False)
                     if head.startswith(b"\x45\x67") and frg == 0:
-                        packt_id = get_packet_id(data)
+                        packt_id = get_packet_id(head)
                         una = int.from_bytes(data[20:24], byteorder="little", signed=False)
                         if (sn, una) not in handled_without_kcp_packet:
                             if packt_id not in skip_packet:
@@ -289,7 +289,7 @@ def handle_kcp(id_key):
                     else:
                         skip = False
                         if head.startswith(b"\x45\x67"):
-                            packt_id = get_packet_id(data)
+                            packt_id = get_packet_id(head)
                             if packt_id not in skip_packet:
                                 if sn + frg not in handled_kcp_packet:
                                     if sn + frg not in kcp:
