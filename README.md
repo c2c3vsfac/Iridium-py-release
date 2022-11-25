@@ -1,7 +1,7 @@
 # Iridium-py-release
 the package sniffer for genshin impact/yuanshen
 
-**Special thanks to [Akka0](https://github.com/Akka0)
+**Special thanks to [Akka0](https://github.com/Akka0),
 [Sorapointa](https://github.com/Sorapointa),[tamilpp25](https://github.com/tamilpp25), [unipendix](https://github.com/BUnipendix).**
 
 原理详见[MagicSniffer](https://github.com/Sorapointa/MagicSniffer)。
