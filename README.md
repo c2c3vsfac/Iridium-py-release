@@ -14,6 +14,6 @@ Add a new branch, combine the function find_key into kcp, I'm not sure the effec
 
 ## Usage
 
-下载，pip install pcapy，修改`config.json`, 运行，完成。
+下载，pip install pcapy，运行，完成。
 
-download，pip install pcapy, modify `config.json`, run, ok.
+download，pip install pcapy, run, ok.
