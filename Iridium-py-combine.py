@@ -4,6 +4,8 @@ import pcapy
 import json
 import parse_proto as pp
 import time
+import os
+import re
 
 
 def package_handle(hdr, data):
@@ -312,6 +314,14 @@ handled_without_kcp_packet = []
 handled_kcp_packet = []
 kcp = {}
 dev = config["device_name"]
+if dev == "NPF_{}":
+    with os.popen("getmac", "r") as c:
+        text = c.read()
+    iface = re.findall("(?<=_{).*?(?=})", text)[0]
+    dev = "NPF_{%s}" % iface
+    with open("config.json", "w", encoding="utf-8") as f:
+        config["device_name"] = dev
+        json.dump(config, f)
 skip_packet = config["skip_packet_id"]
 save_packet = config["save_packet_id"]
 pkg_filter = "udp and port 22102 or port 22101"
