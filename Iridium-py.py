@@ -83,15 +83,23 @@ def find_key():
                         t_data = list(zip(*sorted_frgs))[1]
                         for frg_data in t_data:
                             encrypted_windseed += frg_data
-                        offset = len(encrypted_windseed) - 56553
+                        get_seed = False
+                        offset = 10  # len(encrypted_windseed) - 56553
                         full_key = xor(encrypted_windseed[offset:], windseed_text)
                         keys = [full_key[i: i + 4096] for i in range(4096 - offset, len(full_key), 4096)]
                         decrypted_key = max(set(keys), key=keys.count)
-                        pkg_parser = threading.Thread(target=parse, args=(decrypted_key,))
-                        kcp_dealing = threading.Thread(target=handle_kcp, args=(id_key,))
-                        pkg_parser.start()
-                        kcp_dealing.start()
-                        break
+                        if keys.count(decrypted_key) > 1:
+                            get_seed = True
+                            print("get key")
+                        if get_seed:
+                            pkg_parser = threading.Thread(target=parse, args=(decrypted_key,))
+                            kcp_dealing = threading.Thread(target=handle_kcp, args=(id_key,))
+                            pkg_parser.start()
+                            kcp_dealing.start()
+                            break
+                        else:
+                            print("请重试")
+                            exit()
             else:
                 if not head:
                     if len(b_data) > 20:
@@ -104,12 +112,12 @@ def find_key():
                         if b_data.startswith(b"$\x8f") or b_data.startswith(head):
                             continue
                         else:
-                            id_key = xor(b_data[:4], b"Eg\x00\x70")
+                            id_key = xor(b_data[:4], b"Eg\x00\x9c")
                             if id_key:
                                 have_got_id_key = True
                     else:
                         packet_id = xor(b_data[28:32], id_key)
-                        if packet_id == b"\x45\x67\x04\xaf":
+                        if packet_id == b"\x45\x67\x05\x91":
                             first_frg = b_data[9]
                             first_sn = int.from_bytes(b_data[16:20], byteorder="little", signed=False)
                             have_got_data_key = True
@@ -143,7 +151,7 @@ def parse(decrypt_key):
             proto_name = get_proto_name_by_id(packet_id)
             b_data = remove_magic(b_data)
             if proto_name:
-                if packet_id == 5:
+                if packet_id == 42:  # UnionCmdNotify
                     union_list = []
                     try:
                         data = pp.parse(b_data, str(packet_id))
@@ -175,7 +183,7 @@ def parse(decrypt_key):
                     except Exception as e:
                         f_decrypt_data.write(str(proto_name) + " " + str(b_data) + "\n")
                         print(e)
-                elif packet_id == 1198:  # AbilityInvocationsNotify
+                elif packet_id == 1130:  # AbilityInvocationsNotify
                     try:
                         data = pp.parse(b_data, str(packet_id))
                         if 'invokes' in data:
@@ -192,7 +200,7 @@ def parse(decrypt_key):
                     except Exception as e:
                         f_decrypt_data.write(str(proto_name) + " " + str(b_data) + "\n")
                         print(e)
-                elif packet_id == 319:  # CombatInvocationsNotify
+                elif packet_id == 354:  # CombatInvocationsNotify
                     try:
                         data = pp.parse(b_data, str(packet_id))
                         for invoke in data["invoke_list"]:
@@ -207,7 +215,7 @@ def parse(decrypt_key):
                     except Exception as e:
                         f_decrypt_data.write(str(proto_name) + " " + str(b_data) + "\n")
                         print(e)
-                elif packet_id == 1135:  # ClientAbilityInitFinishNotify
+                elif packet_id == 1119:  # ClientAbilityInitFinishNotify
                     try:
                         data = pp.parse(b_data, str(packet_id))
                         if 'invokes' in data:
@@ -225,7 +233,7 @@ def parse(decrypt_key):
                     except Exception as e:
                         f_decrypt_data.write(str(proto_name) + " " + str(b_data) + "\n")
                         print(e)
-                elif packet_id == 1175:  # ClientAbilityChangeNotify
+                elif packet_id == 1139:  # ClientAbilityChangeNotify
                     try:
                         data = pp.parse(b_data, str(packet_id))
                         if 'invokes' in data:
@@ -331,7 +339,7 @@ def handle_kcp(id_key):
 
 
 def read_windseed():
-    f = open("plaintext.bin", "rb")
+    f = open("GetAllMailResultNotify.bin", "rb")
     b_windseed = f.read()
     f.close()
     return b_windseed
