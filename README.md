@@ -8,12 +8,10 @@ the package sniffer for genshin impact/yuanshen
 
 The principle can be found at [MagicSniffer](https://github.com/Sorapointa/MagicSniffer).
 
-新增了一个分支，kcp同时完成kcp和找windseed的功能，我不确定效果和原先的比有没有区别。
-
-Add a new branch, combine the function find_key into kcp, I'm not sure the effect.
-
 ## Usage
 
-下载，pip install pcapy，运行，完成。
+安装scapy，参见[nahida](https://github.com/Asassong/nahida)
 
-download，pip install pcapy, run, ok.
+## 后续版本使用
+
+获得对应版本的proto文件，运行[iridium-utils](https://github.com/c2c3vsfac/Iridium-utils)中的get_packet_id.py获取packet_id.json，运行proto2json.py获取packet_serialization.json。将iridium-bruteforce.py中GetPlayerTokenReq和GetPlayerTokenRsp的packet_id修改为对应版本的。
