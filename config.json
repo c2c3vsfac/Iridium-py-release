@@ -1,5 +1,1 @@
-{
-  "device_name": "NPF_{}",
-  "skip_packet_id": [],
-  "save_packet_id": []
-}
+{"device_name": "\\Device\\NPF_{}"}

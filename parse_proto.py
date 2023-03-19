@@ -55,6 +55,7 @@ def parse(byte_str, packet_id: str, *args):
             data_id = str(data_id)
         if data_id in encoding_rules:
             if data_type == 0:
+                # print(decode_data)
                 data, offset = varint(i, byte_str)
                 if encoding_rules[data_id] == "bool":
                     data = bool(data)
@@ -64,6 +65,7 @@ def parse(byte_str, packet_id: str, *args):
                     enum_prop = list(prop_names[data_id].values())
                     decode_data[enum_name[0]] = enum_prop[0][str(data)]
                 else:
+                    # print(prop_names[data_id])
                     decode_data[prop_names[data_id]] = data
                 i += offset
                 i += 1
@@ -117,7 +119,10 @@ def parse(byte_str, packet_id: str, *args):
                         if prop_names[data_id] not in decode_data:
                             decode_data[prop_names[data_id]] = []
                         repeated_rule, repeated_name = encoding_rules[data_id]["repeated"]
+                        # print(repeated_rule, repeated_name)
+                        # print(byte_str[i: i + length])
                         repeated_data = parse(byte_str[i: i + length], packet_id, repeated_rule, repeated_name)
+                        # print(repeated_data)
                         decode_data[prop_names[data_id]].append(repeated_data)
                 elif isinstance(encoding_rules[data_id], list):
                     invoke_data = parse(byte_str[i: i + length], packet_id, encoding_rules[data_id][0],
@@ -129,6 +134,7 @@ def parse(byte_str, packet_id: str, *args):
                     repeated_encoding_rules = {"1": data_type}
                     repeated_prop_names = {"1": "1"}
                     decode_data[prop_names[data_id]] = []
+                    # print(decode_data)
                     while j < i + length - 1:
                         repeated_data = parse(byte_str[j: i + length], packet_id,
                                               repeated_encoding_rules, repeated_prop_names, data_type)
@@ -136,6 +142,7 @@ def parse(byte_str, packet_id: str, *args):
                             repeated_offset, repeated_data = repeated_data
                             j += repeated_offset
                             decode_data[prop_names[data_id]].append(repeated_data["1"])
+                    # print(decode_data)
                 i += length
             if len(args) == 3:
                 return i, decode_data
@@ -149,8 +156,5 @@ def read_json_packet(json_name):
 
 
 all_serial = read_json_packet("packet_serialization.json")
-ucn = read_json_packet("ucn_serialization.json")
-all_serial.update(ucn)
-
-
-
+# ucn = read_json_packet("ucn_serialization.json")
+# all_serial.update(ucn)
