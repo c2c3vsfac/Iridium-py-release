@@ -121,7 +121,7 @@ def find_key():
                 client_data = b_data[70:]
                 data = xor(client_data, init_key)
                 packet_id = get_packet_id(data)
-                if packet_id == 167:
+                if packet_id == 190: # GetPlayerTokenReq
                     client_send_time = int(round(time.time() * 1000))
                     print("send_req_time:%d" % client_send_time)
                 else:
@@ -130,7 +130,7 @@ def find_key():
                 server_data = b_data[70:]
                 data = xor(server_data, init_key)
                 packet_id = get_packet_id(data)
-                if packet_id == 175:
+                if packet_id == 196: # GetPlayerTokenRsp
                     data = remove_magic(data)
                     plain = pp.parse(data, str(packet_id))
                     server_encrypted_seed = base64.b64decode(plain['server_rand_key'])
@@ -201,14 +201,14 @@ def parse(decrypt_key):
             proto_name = get_proto_name_by_id(packet_id)
             b_data = remove_magic(b_data)
             # f_decrypt_data.write(str(proto_name) + " " + str(b_data) + "\n")
-            # if packet_id == 69:  # UnionCmdNotify
-            #     union_list = []
-            #     try:
-            #         data = pp.parse(b_data, str(packet_id))
-            #         for union_data in data["cmdList"]:
-            #             each_data = pp.parse(base64.b64decode(union_data["body"]),
-            #                                  str(union_data["messageId"]))
-            #             if 'invokes' in each_data:
+            if packet_id == 75:  # UnionCmdNotify
+                union_list = []
+                try:
+                    data = pp.parse(b_data, str(packet_id))
+                    for union_data in data["cmd_list"]:
+                        each_data = pp.parse(base64.b64decode(union_data["body"]),
+                                             str(union_data["message_id"]))
+                        if 'invokes' in each_data:
             #                 if 'argumentType' in each_data["invokes"][0]:
             #                     argument_type = each_data["invokes"][0]['argumentType']
             #                     if argument_type in union_cmd:
@@ -218,8 +218,8 @@ def parse(decrypt_key):
             #                                 union_cmd[argument_type])
             #                     else:
             #                         print("有未对应argument_type:" + str(argument_type))
-            #                     union_list.append({"AbilityInvocationsNotify": each_data})
-            #             elif 'invokeList' in each_data:
+                            union_list.append({"AbilityInvocationsNotify": each_data})
+                        elif 'invokeList' in each_data:
             #                 if 'argumentType' in each_data["invokeList"][0]:
             #                     argument_type = each_data["invokeList"][0]['argumentType']
             #                     if argument_type in union_cmd:
@@ -228,11 +228,11 @@ def parse(decrypt_key):
             #                             union_cmd[argument_type])
             #                     else:
             #                         print("有未对应argument_type:" + str(argument_type))
-            #                     union_list.append({"CombatInvocationsNotify": each_data})
-            #         f_decrypt_data.write("UnionCmdNotify " + str(union_list) + "\n")
-            #     except Exception as e:
-            #         f_decrypt_data.write(str(proto_name) + " " + str(b_data) + "\n")
-            #         print(e)
+                            union_list.append({"CombatInvocationsNotify": each_data})
+                    f_decrypt_data.write("UnionCmdNotify " + str(union_list) + "\n")
+                except Exception as e:
+                    f_decrypt_data.write(str(proto_name) + " " + str(b_data) + "\n")
+                    print(e)
             # elif packet_id == 1155:  # AbilityInvocationsNotify
             #     try:
             #         data = pp.parse(b_data, str(packet_id))
@@ -304,14 +304,14 @@ def parse(decrypt_key):
             #     except Exception as e:
             #         f_decrypt_data.write(str(proto_name) + " " + str(b_data) + "\n")
             #         print(e)
-            # else:
-            try:
-                data = pp.parse(b_data, str(packet_id))
-                f_decrypt_data.write(str(proto_name) + " " + str(data) + "\n")
-            except Exception as e:
-                print(str(proto_name) + " Error")
-                print(e)
-                f_decrypt_data.write(str(proto_name) + " " + str(b_data) + "\n")
+            else:
+                try:
+                    data = pp.parse(b_data, str(packet_id))
+                    f_decrypt_data.write(str(proto_name) + " " + str(data) + "\n")
+                except Exception as e:
+                    print(str(proto_name) + " Error")
+                    print(e)
+                    f_decrypt_data.write(str(proto_name) + " " + str(b_data) + "\n")
 
 
 def handle_kcp(id_key):
