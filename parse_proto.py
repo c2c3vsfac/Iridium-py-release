@@ -42,7 +42,7 @@ def parse(byte_str, packet_id: str, *args):
         encoding_rules, prop_names = args[0], args[1]
     decode_data = {}
     i = 0
-    while i < len(byte_str) - 1:
+    while i < len(byte_str):
         if len(args) == 3:
             data_type = judge_type(encoding_rules["1"])
             data_id = "1"
@@ -103,14 +103,14 @@ def parse(byte_str, packet_id: str, *args):
                         prop_name = prop_names[data_id]
                         map_private_prop_name = {"1": "first", "2": "second"}
                         if prop_name not in decode_data:
-                            decode_data[prop_name] = []
+                            decode_data[prop_name] = {}
                         map_data = parse(byte_str[i: i + length], packet_id, type_dict, map_private_prop_name)
                         if "first" not in map_data:
                             map_data["first"] = 0
                         if "second" not in map_data:
                             map_data["second"] = 0
                         try:
-                            decode_data[prop_name].append({map_data["first"]: map_data["second"]})
+                            decode_data[prop_name].update({map_data["first"]: map_data["second"]})
                         except KeyError as e:
                             print(e)
                             print(packet_id)
@@ -119,10 +119,7 @@ def parse(byte_str, packet_id: str, *args):
                         if prop_names[data_id] not in decode_data:
                             decode_data[prop_names[data_id]] = []
                         repeated_rule, repeated_name = encoding_rules[data_id]["repeated"]
-                        # print(repeated_rule, repeated_name)
-                        # print(byte_str[i: i + length])
                         repeated_data = parse(byte_str[i: i + length], packet_id, repeated_rule, repeated_name)
-                        # print(repeated_data)
                         decode_data[prop_names[data_id]].append(repeated_data)
                 elif isinstance(encoding_rules[data_id], list):
                     invoke_data = parse(byte_str[i: i + length], packet_id, encoding_rules[data_id][0],
@@ -134,15 +131,13 @@ def parse(byte_str, packet_id: str, *args):
                     repeated_encoding_rules = {"1": data_type}
                     repeated_prop_names = {"1": "1"}
                     decode_data[prop_names[data_id]] = []
-                    # print(decode_data)
-                    while j < i + length - 1:
+                    while j < i + length:
                         repeated_data = parse(byte_str[j: i + length], packet_id,
                                               repeated_encoding_rules, repeated_prop_names, data_type)
                         if len(repeated_data) == 2:
                             repeated_offset, repeated_data = repeated_data
                             j += repeated_offset
                             decode_data[prop_names[data_id]].append(repeated_data["1"])
-                    # print(decode_data)
                 i += length
             if len(args) == 3:
                 return i, decode_data
