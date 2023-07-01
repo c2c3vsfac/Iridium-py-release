@@ -55,7 +55,6 @@ def parse(byte_str, packet_id: str, *args):
             data_id = str(data_id)
         if data_id in encoding_rules:
             if data_type == 0:
-                # print(decode_data)
                 data, offset = varint(i, byte_str)
                 if encoding_rules[data_id] == "bool":
                     data = bool(data)
@@ -64,8 +63,12 @@ def parse(byte_str, packet_id: str, *args):
                     enum_name = list(prop_names[data_id].keys())
                     enum_prop = list(prop_names[data_id].values())
                     decode_data[enum_name[0]] = enum_prop[0][str(data)]
+                # TODO
+                elif isinstance(encoding_rules[data_id], list):
+                    if encoding_rules[data_id][0] == "enum":
+                        enum_encode = encoding_rules[data_id][1]
+                        decode_data[prop_names[data_id]] = enum_encode[str(data)]
                 else:
-                    # print(prop_names[data_id])
                     decode_data[prop_names[data_id]] = data
                 i += offset
                 i += 1
@@ -128,16 +131,26 @@ def parse(byte_str, packet_id: str, *args):
                 elif encoding_rules[data_id].startswith("repeated_"):
                     data_type = re.sub("repeated_", "", encoding_rules[data_id])
                     j = i
-                    repeated_encoding_rules = {"1": data_type}
+                    # TODO
+                    if data_type == "enum":
+                        repeated_prop_name = prop_names[data_id][0]
+                        repeated_encoding_rules = {"1": "uint32"}
+                    else:
+                        repeated_prop_name = prop_names[data_id]
+                        repeated_encoding_rules = {"1": data_type}
                     repeated_prop_names = {"1": "1"}
-                    decode_data[prop_names[data_id]] = []
+                    decode_data[repeated_prop_name] = []
                     while j < i + length:
                         repeated_data = parse(byte_str[j: i + length], packet_id,
                                               repeated_encoding_rules, repeated_prop_names, data_type)
                         if len(repeated_data) == 2:
                             repeated_offset, repeated_data = repeated_data
                             j += repeated_offset
-                            decode_data[prop_names[data_id]].append(repeated_data["1"])
+                            if data_type == "enum":
+                                enum_encoding_rules = prop_names[data_id][1]
+                                decode_data[repeated_prop_name].append(enum_encoding_rules[str(repeated_data["1"])])
+                            else:
+                                decode_data[repeated_prop_name].append(repeated_data["1"])
                 i += length
             if len(args) == 3:
                 return i, decode_data
