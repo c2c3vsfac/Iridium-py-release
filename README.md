@@ -41,7 +41,7 @@ google protocol buffer parse 4 package(s) cost 0.022784 second(s)
 python parse 4 package(s) cost 0.001996 second(s)
 c++ parse 4 package(s) cost 0.014014 second(s)
 
-c++的结果是真迷惑，完全相同的思路，它的运行时间怕是按指数增长
+c++的结果是真迷惑，完全相同的思路，它的运行时间怕是按指数增长。换到nlohmann-json，4分钟，我无话可说了。
 
 1557106
 google protocol buffer parse 9350 package(s) cost 2.419628 second(s)
