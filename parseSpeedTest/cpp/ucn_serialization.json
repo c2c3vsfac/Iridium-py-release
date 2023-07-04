@@ -1,0 +1,2048 @@
+{
+  "10000": [
+    {
+      "14": {
+        "repeated": [
+          {
+            "4": "float",
+            "12": [
+              {
+                "1": "string",
+                "2": "uint32"
+              },
+              {
+                "1": "str",
+                "2": "hash"
+              }
+            ]
+          },
+          {
+            "4": "value",
+            "12": "key"
+          }
+        ]
+      },
+      "4": "enum",
+      "2": "uint32",
+      "15": "bool",
+      "8": "bool",
+      "1": [
+        {
+          "1": "string",
+          "2": "uint32"
+        },
+        {
+          "1": "str",
+          "2": "hash"
+        }
+      ],
+      "7": "uint32",
+      "10": [
+        {
+          "1": "string",
+          "2": "uint32"
+        },
+        {
+          "1": "str",
+          "2": "hash"
+        }
+      ],
+      "3": [
+        {
+          "1": "bool",
+          "2": "uint32",
+          "3": "uint32",
+          "4": "bool",
+          "5": "int32"
+        },
+        {
+          "1": "is_invalid",
+          "2": "owner_entity_id",
+          "3": "instanced_modifier_id",
+          "4": "is_serverbuff_modifier",
+          "5": "attach_name_hash"
+        }
+      ],
+      "12": "bool",
+      "5": "int32"
+    },
+    {
+      "14": "properties",
+      "4": {
+        "action": {
+          "0": "MODIFIER_ACTION_ADDED",
+          "1": "MODIFIER_ACTION_REMOVED"
+        }
+      },
+      "2": "apply_entity_id",
+      "15": "is_mute_remote",
+      "8": "JGGDMDGLJOP",
+      "1": "parent_ability_name",
+      "7": "server_buff_uid",
+      "10": "parent_ability_override",
+      "3": "attached_instanced_modifier",
+      "12": "DLOLFHNNEKI",
+      "5": "modifier_local_id"
+    }
+  ],
+  "10001": [
+    {
+      "1": [
+        {
+          "1": "string",
+          "2": "uint32"
+        },
+        {
+          "1": "str",
+          "2": "hash"
+        }
+      ],
+      "2": "enum",
+      "3": "float",
+      "4": "string",
+      "5": "int32",
+      "6": "uint32"
+    },
+    {
+      "1": "key",
+      "2": {
+        "value_type": {
+          "0": "ABILITY_SCALAR_TYPE_UNKNOW",
+          "1": "ABILITY_SCALAR_TYPE_FLOAT",
+          "2": "ABILITY_SCALAR_TYPE_INT",
+          "3": "ABILITY_SCALAR_TYPE_BOOL",
+          "4": "ABILITY_SCALAR_TYPE_TRIGGER",
+          "5": "ABILITY_SCALAR_TYPE_STRING",
+          "6": "ABILITY_SCALAR_TYPE_UINT"
+        }
+      },
+      "3": "float_value",
+      "4": "string_value",
+      "5": "int_value",
+      "6": "uint_value"
+    }
+  ],
+  "10002": [
+    {
+      "2": {
+        "repeated": [
+          {
+            "1": [
+              {
+                "1": "string",
+                "2": "uint32"
+              },
+              {
+                "1": "str",
+                "2": "hash"
+              }
+            ],
+            "2": "enum",
+            "3": "float",
+            "4": "string",
+            "5": "int32",
+            "6": "uint32"
+          },
+          {
+            "1": "key",
+            "2": {
+              "value_type": {
+                "0": "ABILITY_SCALAR_TYPE_UNKNOW",
+                "1": "ABILITY_SCALAR_TYPE_FLOAT",
+                "2": "ABILITY_SCALAR_TYPE_INT",
+                "3": "ABILITY_SCALAR_TYPE_BOOL",
+                "4": "ABILITY_SCALAR_TYPE_TRIGGER",
+                "5": "ABILITY_SCALAR_TYPE_STRING",
+                "6": "ABILITY_SCALAR_TYPE_UINT"
+              }
+            },
+            "3": "float_value",
+            "4": "string_value",
+            "5": "int_value",
+            "6": "uint_value"
+          }
+        ]
+      }
+    },
+    { "2": "override_map" }
+  ],
+  "10003": [
+    {
+      "1": [
+        {
+          "1": "string",
+          "2": "uint32"
+        },
+        {
+          "1": "str",
+          "2": "hash"
+        }
+      ],
+      "2": "enum",
+      "3": "float",
+      "4": "string",
+      "5": "int32",
+      "6": "uint32"
+    },
+    {
+      "1": "key",
+      "2": {
+        "value_type": {
+          "0": "ABILITY_SCALAR_TYPE_UNKNOW",
+          "1": "ABILITY_SCALAR_TYPE_FLOAT",
+          "2": "ABILITY_SCALAR_TYPE_INT",
+          "3": "ABILITY_SCALAR_TYPE_BOOL",
+          "4": "ABILITY_SCALAR_TYPE_TRIGGER",
+          "5": "ABILITY_SCALAR_TYPE_STRING",
+          "6": "ABILITY_SCALAR_TYPE_UINT"
+        }
+      },
+      "3": "float_value",
+      "4": "string_value",
+      "5": "int_value",
+      "6": "uint_value"
+    }
+  ],
+  "10004": [
+    {
+      "11": "uint32",
+      "2": "int32",
+      "14": "bool",
+      "1": "uint32",
+      "15": "uint32",
+      "9": "uint32"
+    },
+    {
+      "11": "instanced_modifier_id",
+      "2": "local_id",
+      "14": "is_serverbuff_modifier",
+      "1": "modifier_owner_id",
+      "15": "ability_caster_id",
+      "9": "instanced_ability_id"
+    }
+  ],
+  "10005": [
+    {
+      "2": [
+        {
+          "1": [
+            {
+              "1": "string",
+              "2": "uint32"
+            },
+            {
+              "1": "str",
+              "2": "hash"
+            }
+          ],
+          "2": [
+            {
+              "1": "string",
+              "2": "uint32"
+            },
+            {
+              "1": "str",
+              "2": "hash"
+            }
+          ],
+          "3": {
+            "repeated": [
+              {
+                "1": [
+                  {
+                    "1": "string",
+                    "2": "uint32"
+                  },
+                  {
+                    "1": "str",
+                    "2": "hash"
+                  }
+                ],
+                "2": "enum",
+                "3": "float",
+                "4": "string",
+                "5": "int32",
+                "6": "uint32"
+              },
+              {
+                "1": "key",
+                "2": {
+                  "value_type": {
+                    "0": "ABILITY_SCALAR_TYPE_UNKNOW",
+                    "1": "ABILITY_SCALAR_TYPE_FLOAT",
+                    "2": "ABILITY_SCALAR_TYPE_INT",
+                    "3": "ABILITY_SCALAR_TYPE_BOOL",
+                    "4": "ABILITY_SCALAR_TYPE_TRIGGER",
+                    "5": "ABILITY_SCALAR_TYPE_STRING",
+                    "6": "ABILITY_SCALAR_TYPE_UINT"
+                  }
+                },
+                "3": "float_value",
+                "4": "string_value",
+                "5": "int_value",
+                "6": "uint_value"
+              }
+            ]
+          },
+          "4": "uint32"
+        },
+        {
+          "1": "ability_name",
+          "2": "ability_override",
+          "3": "override_map",
+          "4": "instanced_ability_id"
+        }
+      ]
+    },
+    { "2": "ability" }
+  ],
+  "10006": [
+    {
+      "14": {
+        "repeated": [
+          {
+            "4": "float",
+            "12": [
+              {
+                "1": "string",
+                "2": "uint32"
+              },
+              {
+                "1": "str",
+                "2": "hash"
+              }
+            ]
+          },
+          {
+            "4": "value",
+            "12": "key"
+          }
+        ]
+      },
+      "4": "enum",
+      "2": "uint32",
+      "15": "bool",
+      "8": "bool",
+      "1": [
+        {
+          "1": "string",
+          "2": "uint32"
+        },
+        {
+          "1": "str",
+          "2": "hash"
+        }
+      ],
+      "7": "uint32",
+      "10": [
+        {
+          "1": "string",
+          "2": "uint32"
+        },
+        {
+          "1": "str",
+          "2": "hash"
+        }
+      ],
+      "3": [
+        {
+          "1": "bool",
+          "2": "uint32",
+          "3": "uint32",
+          "4": "bool",
+          "5": "int32"
+        },
+        {
+          "1": "is_invalid",
+          "2": "owner_entity_id",
+          "3": "instanced_modifier_id",
+          "4": "is_serverbuff_modifier",
+          "5": "attach_name_hash"
+        }
+      ],
+      "12": "bool",
+      "5": "int32"
+    },
+    {
+      "14": "properties",
+      "4": {
+        "action": {
+          "0": "MODIFIER_ACTION_ADDED",
+          "1": "MODIFIER_ACTION_REMOVED"
+        }
+      },
+      "2": "apply_entity_id",
+      "15": "is_mute_remote",
+      "8": "JGGDMDGLJOP",
+      "1": "parent_ability_name",
+      "7": "server_buff_uid",
+      "10": "parent_ability_override",
+      "3": "attached_instanced_modifier",
+      "12": "DLOLFHNNEKI",
+      "5": "modifier_local_id"
+    }
+  ],
+  "10007": [
+    {
+      "15": [
+        {
+          "1": "int32",
+          "2": [
+            {
+              "1": "uint32",
+              "2": "int32",
+              "3": "float",
+              "4": "bool"
+            },
+            {
+              "1": "para_type",
+              "2": "int_val",
+              "3": "float_val",
+              "4": "bool_val"
+            }
+          ]
+        },
+        {
+          "1": "name_id",
+          "2": "animator_para"
+        }
+      ]
+    },
+    { "15": "value" }
+  ],
+  "10008": [
+    {
+      "1": "uint32",
+      "4": [
+        {
+          "1": "string",
+          "2": "uint32"
+        },
+        {
+          "1": "str",
+          "2": "hash"
+        }
+      ],
+      "15": "uint32",
+      "3": [
+        {
+          "1": "string",
+          "2": "uint32"
+        },
+        {
+          "1": "str",
+          "2": "hash"
+        }
+      ]
+    },
+    {
+      "1": "reaction_type",
+      "4": "global_value_key",
+      "15": "source_caster_id",
+      "3": "ability_name"
+    }
+  ],
+  "10009": [
+    {
+      "2": "uint32",
+      "14": "uint32",
+      "3": "int32",
+      "1": "uint32",
+      "4": "uint32"
+    },
+    {
+      "2": "element_reactor_type",
+      "14": "element_reaction_type",
+      "3": "hit_index",
+      "1": "trigger_entity_id",
+      "4": "element_source_type"
+    }
+  ],
+  "10010": [
+    {
+      "5": "float",
+      "9": [
+        {
+          "1": "float",
+          "2": "float",
+          "3": "float"
+        },
+        {
+          "1": "x",
+          "2": "y",
+          "3": "z"
+        }
+      ]
+    },
+    {
+      "5": "damage",
+      "9": "hit_pos"
+    }
+  ],
+  "10011": [
+    {
+      "11": [
+        {
+          "1": "float",
+          "2": "float",
+          "3": "float"
+        },
+        {
+          "1": "x",
+          "2": "y",
+          "3": "z"
+        }
+      ],
+      "15": [
+        {
+          "1": "float",
+          "2": "float",
+          "3": "float"
+        },
+        {
+          "1": "x",
+          "2": "y",
+          "3": "z"
+        }
+      ],
+      "10": [
+        {
+          "1": "float",
+          "2": "float",
+          "3": "float"
+        },
+        {
+          "1": "x",
+          "2": "y",
+          "3": "z"
+        }
+      ]
+    },
+    {
+      "11": "rot",
+      "15": "pos",
+      "10": "move_dir"
+    }
+  ],
+  "10012": [
+    {
+      "8": [
+        {
+          "1": "float",
+          "2": "float",
+          "3": "float"
+        },
+        {
+          "1": "x",
+          "2": "y",
+          "3": "z"
+        }
+      ],
+      "6": "uint32",
+      "13": [
+        {
+          "1": "float",
+          "2": "float",
+          "3": "float"
+        },
+        {
+          "1": "x",
+          "2": "y",
+          "3": "z"
+        }
+      ]
+    },
+    {
+      "8": "rot",
+      "6": "room_id",
+      "13": "pos"
+    }
+  ],
+  "10013": [
+    {
+      "4": [
+        {
+          "1": "float",
+          "2": "float",
+          "3": "float"
+        },
+        {
+          "1": "x",
+          "2": "y",
+          "3": "z"
+        }
+      ],
+      "7": "uint32",
+      "15": [
+        {
+          "1": "float",
+          "2": "float",
+          "3": "float"
+        },
+        {
+          "1": "x",
+          "2": "y",
+          "3": "z"
+        }
+      ]
+    },
+    {
+      "4": "pos",
+      "7": "room_id",
+      "15": "rot"
+    }
+  ],
+  "10014": [
+    {
+      "5": "float",
+      "8": "uint32",
+      "10": "uint32",
+      "7": "float"
+    },
+    {
+      "5": "max_shield",
+      "8": "element_type",
+      "10": "player_num",
+      "7": "shield"
+    }
+  ],
+  "10015": [
+    {
+      "13": {},
+      "11": { "1": "repeated_Vector" },
+      "4": { "1": "uint32" }
+    },
+    {
+      "13": {},
+      "11": { "1": "pos_list" },
+      "4": { "1": "entity_id" }
+    }
+  ],
+  "10016": [
+    {
+      "9": "bool",
+      "2": {
+        "repeated": [
+          {
+            "1": "int64",
+            "2": {
+              "repeated": [
+                {
+                  "1": "int32",
+                  "2": "repeated_uint32",
+                  "3": "repeated_float",
+                  "4": "uint32"
+                },
+                {
+                  "1": "type",
+                  "2": "reaction_info_list",
+                  "3": "param_list",
+                  "4": "sync_flag"
+                }
+              ]
+            }
+          },
+          {
+            "1": "id",
+            "2": "prop_list"
+          }
+        ]
+      },
+      "6": "repeated_int64"
+    },
+    {
+      "9": "is_clear_all",
+      "2": "massive_prop_list",
+      "6": "delete_id_list"
+    }
+  ],
+  "10017": [
+    {
+      "5": [
+        {
+          "1": "float",
+          "2": "float",
+          "3": "float"
+        },
+        {
+          "1": "x",
+          "2": "y",
+          "3": "z"
+        }
+      ],
+      "4": [
+        {
+          "1": "float",
+          "2": "float",
+          "3": "float"
+        },
+        {
+          "1": "x",
+          "2": "y",
+          "3": "z"
+        }
+      ]
+    },
+    {
+      "5": "InitPos",
+      "4": "forward"
+    }
+  ],
+  "10018": [
+    {
+      "2": "int32",
+      "4": "enum",
+      "6": [
+        {
+          "2": {
+            "repeated": [
+              {
+                "1": "uint32",
+                "2": "repeated_uint32",
+                "3": "repeated_uint32"
+              },
+              {
+                "1": "uid",
+                "2": "skill_id_list",
+                "3": "skill_level_list"
+              }
+            ]
+          }
+        },
+        { "2": "uid_info_list" }
+      ],
+      "9": [
+        {
+          "14": "uint64",
+          "11": "uint64"
+        },
+        {
+          "14": "client_game_time",
+          "11": "server_game_time"
+        }
+      ],
+      "13": [
+        {
+          "11": "uint64",
+          "14": "bool",
+          "3": "bool"
+        },
+        {
+          "11": "server_game_time",
+          "14": "MKOLHMHAKID",
+          "3": "is_win"
+        }
+      ],
+      "5": [
+        {
+          "13": [
+            {
+              "1": "uint64",
+              "2": "uint64",
+              "3": {
+                "repeated": [
+                  {
+                    "1": "uint32",
+                    "2": "uint32",
+                    "3": "bool",
+                    "4": [
+                      {
+                        "1": "int32",
+                        "2": "int32"
+                      },
+                      {
+                        "1": "x",
+                        "2": "y"
+                      }
+                    ],
+                    "5": [
+                      {
+                        "1": "int32",
+                        "2": "int32"
+                      },
+                      {
+                        "1": "x",
+                        "2": "y"
+                      }
+                    ],
+                    "6": "int32",
+                    "7": "uint32",
+                    "8": "uint32",
+                    "9": "uint32",
+                    "10": "uint32",
+                    "11": {
+                      "repeated": [
+                        {
+                          "1": "uint32",
+                          "2": "uint32",
+                          "3": "int32",
+                          "4": "int32",
+                          "5": "int32",
+                          "6": "int32",
+                          "7": "int32",
+                          "8": "int32",
+                          "9": "bool",
+                          "10": "int32",
+                          "11": "int32",
+                          "12": "uint32",
+                          "13": "uint32",
+                          "14": "uint32",
+                          "15": "uint32",
+                          "16": "uint32"
+                        },
+                        {
+                          "1": "type",
+                          "2": "id",
+                          "3": "param1",
+                          "4": "param2",
+                          "5": "param3",
+                          "6": "param4",
+                          "7": "param5",
+                          "8": "param6",
+                          "9": "bool1",
+                          "10": "duration",
+                          "11": "end_time",
+                          "12": "combo",
+                          "13": "peer_id",
+                          "14": "skill_type",
+                          "15": "level",
+                          "16": "choose_player_count"
+                        }
+                      ]
+                    },
+                    "12": "int32",
+                    "13": {
+                      "repeated": [
+                        {
+                          "1": "uint32",
+                          "2": "uint32"
+                        },
+                        {
+                          "1": "hp",
+                          "2": "element_type"
+                        }
+                      ]
+                    },
+                    "14": "uint32",
+                    "15": "uint32",
+                    "16": "int32"
+                  },
+                  {
+                    "1": "id",
+                    "2": "index",
+                    "3": "is_active",
+                    "4": "pos",
+                    "5": "move_dir",
+                    "6": "speed",
+                    "7": "init_peer_id",
+                    "8": "state",
+                    "9": "element_type",
+                    "10": "element_reaction_buff",
+                    "11": "modifier_list",
+                    "12": "total_rotation",
+                    "13": "info_list",
+                    "14": "last_hit_peer_id",
+                    "15": "speed_increase_count",
+                    "16": "offset"
+                  }
+                ]
+              },
+              "4": {
+                "repeated": [
+                  {
+                    "1": "uint32",
+                    "2": "uint32",
+                    "3": "bool",
+                    "4": [
+                      {
+                        "1": "int32",
+                        "2": "int32"
+                      },
+                      {
+                        "1": "x",
+                        "2": "y"
+                      }
+                    ],
+                    "5": [
+                      {
+                        "1": "int32",
+                        "2": "int32"
+                      },
+                      {
+                        "1": "x",
+                        "2": "y"
+                      }
+                    ],
+                    "6": "int32",
+                    "7": "uint32",
+                    "8": "uint32",
+                    "9": "uint32",
+                    "10": "uint32",
+                    "11": {
+                      "repeated": [
+                        {
+                          "1": "uint32",
+                          "2": "uint32",
+                          "3": "int32",
+                          "4": "int32",
+                          "5": "int32",
+                          "6": "int32",
+                          "7": "int32",
+                          "8": "int32",
+                          "9": "bool",
+                          "10": "int32",
+                          "11": "int32",
+                          "12": "uint32",
+                          "13": "uint32",
+                          "14": "uint32",
+                          "15": "uint32",
+                          "16": "uint32"
+                        },
+                        {
+                          "1": "type",
+                          "2": "id",
+                          "3": "param1",
+                          "4": "param2",
+                          "5": "param3",
+                          "6": "param4",
+                          "7": "param5",
+                          "8": "param6",
+                          "9": "bool1",
+                          "10": "duration",
+                          "11": "end_time",
+                          "12": "combo",
+                          "13": "peer_id",
+                          "14": "skill_type",
+                          "15": "level",
+                          "16": "choose_player_count"
+                        }
+                      ]
+                    },
+                    "12": "int32",
+                    "13": {
+                      "repeated": [
+                        {
+                          "1": "uint32",
+                          "2": "uint32"
+                        },
+                        {
+                          "1": "hp",
+                          "2": "element_type"
+                        }
+                      ]
+                    },
+                    "14": "uint32",
+                    "15": "uint32",
+                    "16": "int32"
+                  },
+                  {
+                    "1": "id",
+                    "2": "index",
+                    "3": "is_active",
+                    "4": "pos",
+                    "5": "move_dir",
+                    "6": "speed",
+                    "7": "init_peer_id",
+                    "8": "state",
+                    "9": "element_type",
+                    "10": "element_reaction_buff",
+                    "11": "modifier_list",
+                    "12": "total_rotation",
+                    "13": "info_list",
+                    "14": "last_hit_peer_id",
+                    "15": "speed_increase_count",
+                    "16": "offset"
+                  }
+                ]
+              },
+              "5": {
+                "repeated": [
+                  {
+                    "1": "enum",
+                    "2": "uint64",
+                    "3": "uint64",
+                    "4": "bool",
+                    "5": "uint32",
+                    "6": "uint32",
+                    "7": [
+                      {
+                        "1": "int32",
+                        "2": "int32"
+                      },
+                      {
+                        "1": "x",
+                        "2": "y"
+                      }
+                    ],
+                    "8": [
+                      {
+                        "1": "int32",
+                        "2": "int32"
+                      },
+                      {
+                        "1": "x",
+                        "2": "y"
+                      }
+                    ],
+                    "9": "int32",
+                    "10": "uint32",
+                    "11": "uint32",
+                    "12": "uint32",
+                    "13": "uint32",
+                    "14": "bool",
+                    "15": [
+                      {
+                        "1": "int32",
+                        "2": "int32"
+                      },
+                      {
+                        "1": "x",
+                        "2": "y"
+                      }
+                    ],
+                    "16": "uint32",
+                    "17": "int32",
+                    "18": "uint64"
+                  },
+                  {
+                    "1": {
+                      "action_type": {
+                        "0": "ACTION_TYPE_NONE",
+                        "1": "ACTION_TYPE_LAUNCH_BALL",
+                        "2": "ACTION_TYPE_DESTROY_BALL",
+                        "3": "ACTION_TYPE_FALLING_OBJECT",
+                        "4": "ACTION_TYPE_MISSILE"
+                      }
+                    },
+                    "2": "client_game_time",
+                    "3": "server_game_time",
+                    "4": "is_failed",
+                    "5": "pre_index",
+                    "6": "new_index",
+                    "7": "pos",
+                    "8": "move_dir",
+                    "9": "speed",
+                    "10": "peer_id",
+                    "11": "element_type",
+                    "12": "element_reaction_buff",
+                    "13": "speed_increase_count",
+                    "14": "has_extra_ball",
+                    "15": "extra_ball_dir",
+                    "16": "extra_ball_index",
+                    "17": "offset",
+                    "18": "HPPJKHIDMIF"
+                  }
+                ]
+              },
+              "6": "uint32",
+              "7": "bool",
+              "8": "uint32",
+              "9": "uint32",
+              "10": "uint32",
+              "11": "uint32",
+              "12": "uint32",
+              "13": {
+                "repeated": [
+                  {
+                    "1": "uint32",
+                    "2": "uint32",
+                    "3": {
+                      "repeated": [
+                        {
+                          "1": "uint32",
+                          "2": "uint32",
+                          "3": "bool",
+                          "4": [
+                            {
+                              "1": "int32",
+                              "2": "int32"
+                            },
+                            {
+                              "1": "x",
+                              "2": "y"
+                            }
+                          ],
+                          "5": [
+                            {
+                              "1": "int32",
+                              "2": "int32"
+                            },
+                            {
+                              "1": "x",
+                              "2": "y"
+                            }
+                          ],
+                          "6": "int32",
+                          "7": "uint32",
+                          "8": "uint32",
+                          "9": "uint32",
+                          "10": "uint32",
+                          "11": {
+                            "repeated": [
+                              {
+                                "1": "uint32",
+                                "2": "uint32",
+                                "3": "int32",
+                                "4": "int32",
+                                "5": "int32",
+                                "6": "int32",
+                                "7": "int32",
+                                "8": "int32",
+                                "9": "bool",
+                                "10": "int32",
+                                "11": "int32",
+                                "12": "uint32",
+                                "13": "uint32",
+                                "14": "uint32",
+                                "15": "uint32",
+                                "16": "uint32"
+                              },
+                              {
+                                "1": "type",
+                                "2": "id",
+                                "3": "param1",
+                                "4": "param2",
+                                "5": "param3",
+                                "6": "param4",
+                                "7": "param5",
+                                "8": "param6",
+                                "9": "bool1",
+                                "10": "duration",
+                                "11": "end_time",
+                                "12": "combo",
+                                "13": "peer_id",
+                                "14": "skill_type",
+                                "15": "level",
+                                "16": "choose_player_count"
+                              }
+                            ]
+                          },
+                          "12": "int32",
+                          "13": {
+                            "repeated": [
+                              {
+                                "1": "uint32",
+                                "2": "uint32"
+                              },
+                              {
+                                "1": "hp",
+                                "2": "element_type"
+                              }
+                            ]
+                          },
+                          "14": "uint32",
+                          "15": "uint32",
+                          "16": "int32"
+                        },
+                        {
+                          "1": "id",
+                          "2": "index",
+                          "3": "is_active",
+                          "4": "pos",
+                          "5": "move_dir",
+                          "6": "speed",
+                          "7": "init_peer_id",
+                          "8": "state",
+                          "9": "element_type",
+                          "10": "element_reaction_buff",
+                          "11": "modifier_list",
+                          "12": "total_rotation",
+                          "13": "info_list",
+                          "14": "last_hit_peer_id",
+                          "15": "speed_increase_count",
+                          "16": "offset"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "1": "id",
+                    "2": "brick_suite_id",
+                    "3": "spawned_brick_list"
+                  }
+                ]
+              },
+              "14": "uint32",
+              "15": {
+                "repeated": [
+                  {
+                    "1": "uint32",
+                    "2": "uint32"
+                  },
+                  {
+                    "1": "element_reaction",
+                    "2": "count"
+                  }
+                ]
+              },
+              "16": {
+                "repeated": [
+                  {
+                    "1": "uint32",
+                    "2": "uint32"
+                  },
+                  {
+                    "1": "element_reaction",
+                    "2": "count"
+                  }
+                ]
+              },
+              "17": {
+                "repeated": [
+                  {
+                    "1": "uint32",
+                    "2": "repeated_uint32",
+                    "3": "repeated_uint32"
+                  },
+                  {
+                    "1": "uid",
+                    "2": "skill_id_list",
+                    "3": "skill_level_list"
+                  }
+                ]
+              },
+              "18": {
+                "repeated": [
+                  {
+                    "1": "uint32",
+                    "2": "uint32",
+                    "3": "bool",
+                    "4": [
+                      {
+                        "1": "int32",
+                        "2": "int32"
+                      },
+                      {
+                        "1": "x",
+                        "2": "y"
+                      }
+                    ],
+                    "5": [
+                      {
+                        "1": "int32",
+                        "2": "int32"
+                      },
+                      {
+                        "1": "x",
+                        "2": "y"
+                      }
+                    ],
+                    "6": "int32",
+                    "7": "uint32",
+                    "8": "uint32",
+                    "9": "uint32",
+                    "10": "uint32",
+                    "11": {
+                      "repeated": [
+                        {
+                          "1": "uint32",
+                          "2": "uint32",
+                          "3": "int32",
+                          "4": "int32",
+                          "5": "int32",
+                          "6": "int32",
+                          "7": "int32",
+                          "8": "int32",
+                          "9": "bool",
+                          "10": "int32",
+                          "11": "int32",
+                          "12": "uint32",
+                          "13": "uint32",
+                          "14": "uint32",
+                          "15": "uint32",
+                          "16": "uint32"
+                        },
+                        {
+                          "1": "type",
+                          "2": "id",
+                          "3": "param1",
+                          "4": "param2",
+                          "5": "param3",
+                          "6": "param4",
+                          "7": "param5",
+                          "8": "param6",
+                          "9": "bool1",
+                          "10": "duration",
+                          "11": "end_time",
+                          "12": "combo",
+                          "13": "peer_id",
+                          "14": "skill_type",
+                          "15": "level",
+                          "16": "choose_player_count"
+                        }
+                      ]
+                    },
+                    "12": "int32",
+                    "13": {
+                      "repeated": [
+                        {
+                          "1": "uint32",
+                          "2": "uint32"
+                        },
+                        {
+                          "1": "hp",
+                          "2": "element_type"
+                        }
+                      ]
+                    },
+                    "14": "uint32",
+                    "15": "uint32",
+                    "16": "int32"
+                  },
+                  {
+                    "1": "id",
+                    "2": "index",
+                    "3": "is_active",
+                    "4": "pos",
+                    "5": "move_dir",
+                    "6": "speed",
+                    "7": "init_peer_id",
+                    "8": "state",
+                    "9": "element_type",
+                    "10": "element_reaction_buff",
+                    "11": "modifier_list",
+                    "12": "total_rotation",
+                    "13": "info_list",
+                    "14": "last_hit_peer_id",
+                    "15": "speed_increase_count",
+                    "16": "offset"
+                  }
+                ]
+              },
+              "19": "repeated_uint32",
+              "20": "int32"
+            },
+            {
+              "1": "client_game_time",
+              "2": "server_game_time",
+              "3": "ball_list",
+              "4": "physical_object_list",
+              "5": "action_list",
+              "6": "wave_index",
+              "7": "is_finish",
+              "8": "score",
+              "9": "combo",
+              "10": "max_combo",
+              "11": "life_count",
+              "12": "wave_suite_index",
+              "13": "spawn_point_list",
+              "14": "remaining_boss_hp",
+              "15": "brick_element_reaction_list",
+              "16": "ball_element_reaction_list",
+              "17": "uid_info_list",
+              "18": "dynamic_object_list",
+              "19": "id_index_list",
+              "20": "raw_client_game_time"
+            }
+          ]
+        },
+        { "13": "snap_shot" }
+      ],
+      "15": [
+        {
+          "14": [
+            {
+              "1": "enum",
+              "2": "uint64",
+              "3": "uint64",
+              "4": "bool",
+              "5": "uint32",
+              "6": "uint32",
+              "7": [
+                {
+                  "1": "int32",
+                  "2": "int32"
+                },
+                {
+                  "1": "x",
+                  "2": "y"
+                }
+              ],
+              "8": [
+                {
+                  "1": "int32",
+                  "2": "int32"
+                },
+                {
+                  "1": "x",
+                  "2": "y"
+                }
+              ],
+              "9": "int32",
+              "10": "uint32",
+              "11": "uint32",
+              "12": "uint32",
+              "13": "uint32",
+              "14": "bool",
+              "15": [
+                {
+                  "1": "int32",
+                  "2": "int32"
+                },
+                {
+                  "1": "x",
+                  "2": "y"
+                }
+              ],
+              "16": "uint32",
+              "17": "int32",
+              "18": "uint64"
+            },
+            {
+              "1": {
+                "action_type": {
+                  "0": "ACTION_TYPE_NONE",
+                  "1": "ACTION_TYPE_LAUNCH_BALL",
+                  "2": "ACTION_TYPE_DESTROY_BALL",
+                  "3": "ACTION_TYPE_FALLING_OBJECT",
+                  "4": "ACTION_TYPE_MISSILE"
+                }
+              },
+              "2": "client_game_time",
+              "3": "server_game_time",
+              "4": "is_failed",
+              "5": "pre_index",
+              "6": "new_index",
+              "7": "pos",
+              "8": "move_dir",
+              "9": "speed",
+              "10": "peer_id",
+              "11": "element_type",
+              "12": "element_reaction_buff",
+              "13": "speed_increase_count",
+              "14": "has_extra_ball",
+              "15": "extra_ball_dir",
+              "16": "extra_ball_index",
+              "17": "offset",
+              "18": "HPPJKHIDMIF"
+            }
+          ]
+        },
+        { "14": "action" }
+      ]
+    },
+    {
+      "2": "retcode",
+      "4": {
+        "sync_type": {
+          "0": "SYNC_TYPE_NONE",
+          "1": "SYNC_TYPE_CREATE_CONNECT",
+          "2": "SYNC_TYPE_START_GAME",
+          "3": "SYNC_TYPE_PING",
+          "4": "SYNC_TYPE_FINISH_GAME",
+          "5": "SYNC_TYPE_SNAP_SHOT",
+          "6": "SYNC_TYPE_ACTION"
+        }
+      },
+      "6": "sync_create_connect",
+      "9": "sync_ping",
+      "13": "sync_finish_game",
+      "5": "sync_snap_shot",
+      "15": "sync_action"
+    }
+  ],
+  "10019": [
+    {
+      "6": "float",
+      "2": "float",
+      "14": "float",
+      "13": "float",
+      "5": "uint32",
+      "8": "uint32"
+    },
+    {
+      "6": "hitHaltTime",
+      "2": "hitHaltTimeScale",
+      "14": "retreatStrength",
+      "13": "airStrength",
+      "5": "IDJFCEPGOOF",
+      "8": "ODEDPMCMFNN"
+    }
+  ],
+  "10020": [
+    {
+      "3": [
+        {
+          "7": "uint32",
+          "8": "uint32",
+          "12": "bool",
+          "4": "int32",
+          "6": [
+            {
+              "1": "float",
+              "2": "float",
+              "3": "float"
+            },
+            {
+              "1": "x",
+              "2": "y",
+              "3": "z"
+            }
+          ],
+          "10": "uint32",
+          "1": "float",
+          "11": "bool",
+          "9": "uint32"
+        },
+        {
+          "7": "NLMICFIEANI",
+          "8": "BCKFGDDJMBJ",
+          "12": "CMLCMCKNCAH",
+          "4": "face_angle_compact",
+          "6": "pos",
+          "10": "entity_id",
+          "1": "fade_duration",
+          "11": "JNIONCMCEAO",
+          "9": "HDHIBLLIPAO"
+        }
+      ],
+      "5": "enum"
+    },
+    {
+      "3": "evt_animator_state_changed_info",
+      "5": {
+        "forward_type": {
+          "0": "FORWARD_TYPE_LOCAL",
+          "1": "FORWARD_TYPE_TO_ALL",
+          "2": "FORWARD_TYPE_TO_ALL_EXCEPT_CUR",
+          "3": "FORWARD_TYPE_TO_HOST",
+          "4": "FORWARD_TYPE_TO_ALL_GUEST",
+          "5": "FORWARD_TYPE_TO_PEER",
+          "6": "FORWARD_TYPE_TO_PEERS",
+          "7": "FORWARD_TYPE_ONLY_SERVER",
+          "8": "FORWARD_TYPE_TO_ALL_EXIST_EXCEPT_CUR"
+        }
+      }
+    }
+  ],
+  "10021": [
+    {
+      "6": "enum",
+      "11": [
+        {
+          "8": "uint32",
+          "9": [
+            {
+              "1": "float",
+              "2": "float",
+              "3": "float"
+            },
+            {
+              "1": "x",
+              "2": "y",
+              "3": "z"
+            }
+          ]
+        },
+        {
+          "8": "entity_id",
+          "9": "face_dir"
+        }
+      ]
+    },
+    {
+      "6": {
+        "forward_type": {
+          "0": "FORWARD_TYPE_LOCAL",
+          "1": "FORWARD_TYPE_TO_ALL",
+          "2": "FORWARD_TYPE_TO_ALL_EXCEPT_CUR",
+          "3": "FORWARD_TYPE_TO_HOST",
+          "4": "FORWARD_TYPE_TO_ALL_GUEST",
+          "5": "FORWARD_TYPE_TO_PEER",
+          "6": "FORWARD_TYPE_TO_PEERS",
+          "7": "FORWARD_TYPE_ONLY_SERVER",
+          "8": "FORWARD_TYPE_TO_ALL_EXIST_EXCEPT_CUR"
+        }
+      },
+      "11": "evt_face_to_dir_info"
+    }
+  ],
+  "10022": [
+    {
+      "2": [
+        {
+          "4": "uint32",
+          "7": "uint32",
+          "10": "uint32"
+        },
+        {
+          "4": "entity_id",
+          "7": "select_point_index",
+          "10": "attack_target_id"
+        }
+      ],
+      "9": "enum"
+    },
+    {
+      "2": "evt_set_attack_target_info",
+      "9": {
+        "forward_type": {
+          "0": "FORWARD_TYPE_LOCAL",
+          "1": "FORWARD_TYPE_TO_ALL",
+          "2": "FORWARD_TYPE_TO_ALL_EXCEPT_CUR",
+          "3": "FORWARD_TYPE_TO_HOST",
+          "4": "FORWARD_TYPE_TO_ALL_GUEST",
+          "5": "FORWARD_TYPE_TO_PEER",
+          "6": "FORWARD_TYPE_TO_PEERS",
+          "7": "FORWARD_TYPE_ONLY_SERVER",
+          "8": "FORWARD_TYPE_TO_ALL_EXIST_EXCEPT_CUR"
+        }
+      }
+    }
+  ],
+  "10023": [
+    {
+      "12": "enum",
+      "8": [
+        {
+          "7": [
+            {
+              "1": "float",
+              "2": "float",
+              "3": "float"
+            },
+            {
+              "1": "x",
+              "2": "y",
+              "3": "z"
+            }
+          ],
+          "1": [
+            {
+              "1": "float",
+              "2": "float",
+              "3": "float"
+            },
+            {
+              "1": "x",
+              "2": "y",
+              "3": "z"
+            }
+          ],
+          "9": "int32",
+          "5": "uint32",
+          "12": [
+            {
+              "1": "float",
+              "2": "float",
+              "3": "float"
+            },
+            {
+              "1": "x",
+              "2": "y",
+              "3": "z"
+            }
+          ],
+          "11": "float",
+          "2": "int32",
+          "3": [
+            {
+              "1": "float",
+              "2": "float",
+              "3": "float"
+            },
+            {
+              "1": "x",
+              "2": "y",
+              "3": "z"
+            }
+          ]
+        },
+        {
+          "7": "velocity",
+          "1": "pos",
+          "9": "face_angle_compact",
+          "5": "entity_id",
+          "12": "EHOAONODFHE",
+          "11": "timeRange",
+          "2": "state_name_hash",
+          "3": "PONJIJJIKCL"
+        }
+      ]
+    },
+    {
+      "12": {
+        "forward_type": {
+          "0": "FORWARD_TYPE_LOCAL",
+          "1": "FORWARD_TYPE_TO_ALL",
+          "2": "FORWARD_TYPE_TO_ALL_EXCEPT_CUR",
+          "3": "FORWARD_TYPE_TO_HOST",
+          "4": "FORWARD_TYPE_TO_ALL_GUEST",
+          "5": "FORWARD_TYPE_TO_PEER",
+          "6": "FORWARD_TYPE_TO_PEERS",
+          "7": "FORWARD_TYPE_ONLY_SERVER",
+          "8": "FORWARD_TYPE_TO_ALL_EXIST_EXCEPT_CUR"
+        }
+      },
+      "8": "evt_rush_move_info"
+    }
+  ],
+  "10024": [
+    {
+      "3": [
+        {
+          "7": "uint32",
+          "8": "uint32",
+          "12": "bool",
+          "4": "int32",
+          "6": [
+            {
+              "1": "float",
+              "2": "float",
+              "3": "float"
+            },
+            {
+              "1": "x",
+              "2": "y",
+              "3": "z"
+            }
+          ],
+          "10": "uint32",
+          "1": "float",
+          "11": "bool",
+          "9": "uint32"
+        },
+        {
+          "7": "NLMICFIEANI",
+          "8": "BCKFGDDJMBJ",
+          "12": "CMLCMCKNCAH",
+          "4": "face_angle_compact",
+          "6": "pos",
+          "10": "entity_id",
+          "1": "fade_duration",
+          "11": "JNIONCMCEAO",
+          "9": "HDHIBLLIPAO"
+        }
+      ],
+      "5": "enum"
+    },
+    {
+      "3": "evt_animator_state_changed_info",
+      "5": {
+        "forward_type": {
+          "0": "FORWARD_TYPE_LOCAL",
+          "1": "FORWARD_TYPE_TO_ALL",
+          "2": "FORWARD_TYPE_TO_ALL_EXCEPT_CUR",
+          "3": "FORWARD_TYPE_TO_HOST",
+          "4": "FORWARD_TYPE_TO_ALL_GUEST",
+          "5": "FORWARD_TYPE_TO_PEER",
+          "6": "FORWARD_TYPE_TO_PEERS",
+          "7": "FORWARD_TYPE_ONLY_SERVER",
+          "8": "FORWARD_TYPE_TO_ALL_EXIST_EXCEPT_CUR"
+        }
+      }
+    }
+  ],
+  "10025": [
+    {
+      "1": "uint32",
+      "2": [
+        {
+          "1": [
+            {
+              "1": "float",
+              "2": "float",
+              "3": "float"
+            },
+            {
+              "1": "x",
+              "2": "y",
+              "3": "z"
+            }
+          ],
+          "2": [
+            {
+              "1": "float",
+              "2": "float",
+              "3": "float"
+            },
+            {
+              "1": "x",
+              "2": "y",
+              "3": "z"
+            }
+          ],
+          "3": [
+            {
+              "1": "float",
+              "2": "float",
+              "3": "float"
+            },
+            {
+              "1": "x",
+              "2": "y",
+              "3": "z"
+            }
+          ],
+          "4": "enum",
+          "5": {
+            "repeated": [
+              {
+                "1": "float",
+                "2": "float",
+                "3": "float"
+              },
+              {
+                "1": "x",
+                "2": "y",
+                "3": "z"
+              }
+            ]
+          },
+          "6": [
+            {
+              "1": "float",
+              "2": "float",
+              "3": "float"
+            },
+            {
+              "1": "x",
+              "2": "y",
+              "3": "z"
+            }
+          ],
+          "7": "uint32",
+          "8": "uint32",
+          "9": "uint64"
+        },
+        {
+          "1": "pos",
+          "2": "rot",
+          "3": "speed",
+          "4": {
+            "state": {
+              "0": "MOTION_STATE_NONE",
+              "1": "MOTION_STATE_RESET",
+              "2": "MOTION_STATE_STANDBY",
+              "3": "MOTION_STATE_STANDBY_MOVE",
+              "4": "MOTION_STATE_WALK",
+              "5": "MOTION_STATE_RUN",
+              "6": "MOTION_STATE_DASH",
+              "7": "MOTION_STATE_CLIMB",
+              "8": "MOTION_STATE_CLIMB_JUMP",
+              "9": "MOTION_STATE_STANDBY_TO_CLIMB",
+              "10": "MOTION_STATE_FIGHT",
+              "11": "MOTION_STATE_JUMP",
+              "12": "MOTION_STATE_DROP",
+              "13": "MOTION_STATE_FLY",
+              "14": "MOTION_STATE_SWIM_MOVE",
+              "15": "MOTION_STATE_SWIM_IDLE",
+              "16": "MOTION_STATE_SWIM_DASH",
+              "17": "MOTION_STATE_SWIM_JUMP",
+              "18": "MOTION_STATE_SLIP",
+              "19": "MOTION_STATE_GO_UPSTAIRS",
+              "20": "MOTION_STATE_FALL_ON_GROUND",
+              "21": "MOTION_STATE_JUMP_UP_WALL_FOR_STANDBY",
+              "22": "MOTION_STATE_JUMP_OFF_WALL",
+              "23": "MOTION_STATE_POWERED_FLY",
+              "24": "MOTION_STATE_LADDER_IDLE",
+              "25": "MOTION_STATE_LADDER_MOVE",
+              "26": "MOTION_STATE_LADDER_SLIP",
+              "27": "MOTION_STATE_STANDBY_TO_LADDER",
+              "28": "MOTION_STATE_LADDER_TO_STANDBY",
+              "29": "MOTION_STATE_DANGER_STANDBY",
+              "30": "MOTION_STATE_DANGER_STANDBY_MOVE",
+              "31": "MOTION_STATE_DANGER_WALK",
+              "32": "MOTION_STATE_DANGER_RUN",
+              "33": "MOTION_STATE_DANGER_DASH",
+              "34": "MOTION_STATE_CROUCH_IDLE",
+              "35": "MOTION_STATE_CROUCH_MOVE",
+              "36": "MOTION_STATE_CROUCH_ROLL",
+              "37": "MOTION_STATE_NOTIFY",
+              "38": "MOTION_STATE_LAND_SPEED",
+              "39": "MOTION_STATE_MOVE_FAIL_ACK",
+              "40": "MOTION_STATE_WATERFALL",
+              "41": "MOTION_STATE_DASH_BEFORE_SHAKE",
+              "42": "MOTION_STATE_SIT_IDLE",
+              "43": "MOTION_STATE_FORCE_SET_POS",
+              "44": "MOTION_STATE_QUEST_FORCE_DRAG",
+              "45": "MOTION_STATE_FOLLOW_ROUTE",
+              "46": "MOTION_STATE_SKIFF_BOARDING",
+              "47": "MOTION_STATE_SKIFF_NORMAL",
+              "48": "MOTION_STATE_SKIFF_DASH",
+              "49": "MOTION_STATE_SKIFF_POWERED_DASH",
+              "50": "MOTION_STATE_DESTROY_VEHICLE",
+              "51": "MOTION_STATE_FLY_IDLE",
+              "52": "MOTION_STATE_FLY_SLOW",
+              "53": "MOTION_STATE_FLY_FAST",
+              "54": "MOTION_STATE_AIM_MOVE",
+              "55": "MOTION_STATE_AIR_COMPENSATION",
+              "56": "MOTION_STATE_SORUSH_NORMAL",
+              "57": "MOTION_STATE_NUM"
+            }
+          },
+          "5": "params",
+          "6": "ref_pos",
+          "7": "ref_id",
+          "8": "scene_time",
+          "9": "interval_velocity"
+        }
+      ],
+      "3": "uint32",
+      "4": "uint32",
+      "5": "bool"
+    },
+    {
+      "1": "entity_id",
+      "2": "motion_info",
+      "3": "scene_time",
+      "4": "reliable_seq",
+      "5": "is_reliable"
+    }
+  ],
+  "10026": [
+    {
+      "11": "uint32",
+      "5": [
+        {
+          "1": "float",
+          "2": "float",
+          "3": "float"
+        },
+        {
+          "1": "x",
+          "2": "y",
+          "3": "z"
+        }
+      ],
+      "12": "uint32",
+      "10": "uint32",
+      "14": "int32"
+    },
+    {
+      "11": "entity_id",
+      "5": "pos",
+      "12": "IBEEKINNPFA",
+      "10": "NLMICFIEANI",
+      "14": "face_angle_compact"
+    }
+  ],
+  "10027": [
+    {
+      "13": [
+        {
+          "1": "float",
+          "2": "float",
+          "3": "float"
+        },
+        {
+          "1": "x",
+          "2": "y",
+          "3": "z"
+        }
+      ],
+      "9": "uint32",
+      "5": "uint32",
+      "7": "int32",
+      "2": "uint32"
+    },
+    {
+      "13": "cur_pos",
+      "9": "JKFEIKAKLME",
+      "5": "entity_id",
+      "7": "face_angle_compact",
+      "2": "NLMICFIEANI"
+    }
+  ],
+  "10028": [
+    {
+      "2": "uint32",
+      "5": [
+        {
+          "1": "float",
+          "2": "float",
+          "3": "float"
+        },
+        {
+          "1": "x",
+          "2": "y",
+          "3": "z"
+        }
+      ],
+      "15": "bool",
+      "1": "float",
+      "8": "bool",
+      "4": "repeated_uint32",
+      "3": "string"
+    },
+    {
+      "2": "entity_id",
+      "5": "target_pos",
+      "15": "EKKDNPEOCCJ",
+      "1": "speed",
+      "8": "HJFFLLFHBKH",
+      "4": "animator_state_id_list",
+      "3": "override_collider"
+    }
+  ],
+  "10029": [
+    {
+      "15": "float",
+      "13": "uint32",
+      "5": "float",
+      "1": "uint32"
+    },
+    {
+      "15": "BCPCBNJPKML",
+      "13": "source_id",
+      "5": "INLMLKPPDPI",
+      "1": "target_id"
+    }
+  ],
+  "10030": [
+    {
+      "10": "uint32",
+      "3": [
+        {
+          "1": "float",
+          "2": "float",
+          "3": "float"
+        },
+        {
+          "1": "x",
+          "2": "y",
+          "3": "z"
+        }
+      ]
+    },
+    {
+      "10": "entity_id",
+      "3": "skill_anchor_position"
+    }
+  ],
+  "10031": [
+    {
+      "5": [
+        {
+          "1": "float",
+          "2": "float",
+          "3": "float"
+        },
+        {
+          "1": "x",
+          "2": "y",
+          "3": "z"
+        }
+      ],
+      "11": "float",
+      "1": "float",
+      "12": "repeated_uint32",
+      "2": "bool",
+      "8": "bool",
+      "7": "float",
+      "3": "string",
+      "14": "uint32"
+    },
+    {
+      "5": "target_pos",
+      "11": "FAHMFGGPNMA",
+      "1": "speed",
+      "12": "animator_state_id_list",
+      "2": "EKKDNPEOCCJ",
+      "8": "HJFFLLFHBKH",
+      "7": "FJPFLDIBPCN",
+      "3": "override_collider",
+      "14": "entity_id"
+    }
+  ]
+}
