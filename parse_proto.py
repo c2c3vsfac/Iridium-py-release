@@ -63,7 +63,6 @@ def parse(byte_str, packet_id: str, *args):
                     enum_name = list(prop_names[data_id].keys())
                     enum_prop = list(prop_names[data_id].values())
                     decode_data[enum_name[0]] = enum_prop[0][str(data)]
-                # TODO
                 elif isinstance(encoding_rules[data_id], list):
                     if encoding_rules[data_id][0] == "enum":
                         enum_encode = encoding_rules[data_id][1]
@@ -99,7 +98,7 @@ def parse(byte_str, packet_id: str, *args):
                 if encoding_rules[data_id] == "string":
                     decode_data[prop_names[data_id]] = byte_str[i: i + length].decode()
                 elif encoding_rules[data_id] == "bytes":
-                    decode_data[prop_names[data_id]] = base64.b64encode(byte_str[i: i + length])
+                    decode_data[prop_names[data_id]] = base64.b64encode(byte_str[i: i + length]).decode("ascii")
                 elif isinstance(encoding_rules[data_id], dict):
                     if "map" in encoding_rules[data_id]:
                         type_dict = {"1": encoding_rules[data_id]["map"][0], "2": encoding_rules[data_id]["map"][1]}
@@ -131,26 +130,29 @@ def parse(byte_str, packet_id: str, *args):
                 elif encoding_rules[data_id].startswith("repeated_"):
                     data_type = re.sub("repeated_", "", encoding_rules[data_id])
                     j = i
-                    # TODO
                     if data_type == "enum":
-                        repeated_prop_name = prop_names[data_id][0]
+                        repeated_prop_name: str = prop_names[data_id][0]
                         repeated_encoding_rules = {"1": "uint32"}
                     else:
-                        repeated_prop_name = prop_names[data_id]
+                        repeated_prop_name: str = prop_names[data_id]
                         repeated_encoding_rules = {"1": data_type}
                     repeated_prop_names = {"1": "1"}
-                    decode_data[repeated_prop_name] = []
-                    while j < i + length:
-                        repeated_data = parse(byte_str[j: i + length], packet_id,
-                                              repeated_encoding_rules, repeated_prop_names, data_type)
-                        if len(repeated_data) == 2:
-                            repeated_offset, repeated_data = repeated_data
-                            j += repeated_offset
-                            if data_type == "enum":
-                                enum_encoding_rules = prop_names[data_id][1]
-                                decode_data[repeated_prop_name].append(enum_encoding_rules[str(repeated_data["1"])])
-                            else:
-                                decode_data[repeated_prop_name].append(repeated_data["1"])
+                    if repeated_prop_name not in decode_data:
+                        decode_data[repeated_prop_name] = []
+                    if data_type == "string":
+                        decode_data[repeated_prop_name].append(byte_str[j: i + length].decode())
+                    else:
+                        while j < i + length:
+                            repeated_data = parse(byte_str[j: i + length], packet_id,
+                                                  repeated_encoding_rules, repeated_prop_names, data_type)
+                            if len(repeated_data) == 2:
+                                repeated_offset, repeated_data = repeated_data
+                                j += repeated_offset
+                                if data_type == "enum":
+                                    enum_encoding_rules = prop_names[data_id][1]
+                                    decode_data[repeated_prop_name].append(enum_encoding_rules[str(repeated_data["1"])])
+                                else:
+                                    decode_data[repeated_prop_name].append(repeated_data["1"])
                 i += length
             if len(args) == 3:
                 return i, decode_data
@@ -164,5 +166,5 @@ def read_json_packet(json_name):
 
 
 all_serial = read_json_packet("packet_serialization.json")
-# ucn = read_json_packet("ucn_serialization.json")
-# all_serial.update(ucn)
+ucn = read_json_packet("ucn_serialization.json")
+all_serial.update(ucn)
