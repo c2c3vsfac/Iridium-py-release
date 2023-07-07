@@ -18,13 +18,4 @@ The principle can be found at [MagicSniffer](https://github.com/Sorapointa/Magic
 
 Get the corresponding version of the proto file(e.g. from [NickTheHuy](https://github.com/NickTheHuy)), run `get_packet_id.py` in [iridium-utils](https://github.com/c2c3vsfac/Iridium-utils) to obtain `packet_id.json`, and run `proto2json.py` to obtain `packet_serialization.json`. Modify the packet_id for `GetPlayerTokenReq` and `GetPlayerTokenRsp` in `iridium-bruteforce.py` to match the corresponding version.
 
-## 解析测速
-
-```
-1557106
-google protocol buffer parse 9350 package(s) cost 2.534905 second(s)
-python parse 9350 package(s) cost 1.315079 second(s)
-c++ parse 9350 package(s) cost 5.210828 second(s)
-```
-
 
