@@ -14,8 +14,8 @@ The principle can be found at [MagicSniffer](https://github.com/Sorapointa/Magic
 
 ## 后续版本使用
 
-获得对应版本的proto文件(比如[NickTheHuy](https://github.com/NickTheHuy))，运行[iridium-utils](https://github.com/c2c3vsfac/Iridium-utils)中的get_packet_id.py获取packet_id.json，运行proto2json.py获取packet_serialization.json。将iridium-bruteforce.py中GetPlayerTokenReq和GetPlayerTokenRsp的packet_id修改为对应版本的。
+获得对应版本的proto文件，运行[iridium-utils](https://github.com/c2c3vsfac/Iridium-utils)中的get_packet_id.py获取packet_id.json，运行proto2json.py获取packet_serialization.json。对于国际服(OSREL),应该将`iridium-bruteforce.py`中函数`rsa_decrypt`的`private_key_4.pem`改为`private_key_5.pem` 。
 
-Get the corresponding version of the proto file(e.g. from [NickTheHuy](https://github.com/NickTheHuy)), run `get_packet_id.py` in [iridium-utils](https://github.com/c2c3vsfac/Iridium-utils) to obtain `packet_id.json`, and run `proto2json.py` to obtain `packet_serialization.json`. Modify the packet_id for `GetPlayerTokenReq` and `GetPlayerTokenRsp` in `iridium-bruteforce.py` to match the corresponding version.
+Get the corresponding version of the proto file, run `get_packet_id.py` in [iridium-utils](https://github.com/c2c3vsfac/Iridium-utils) to obtain `packet_id.json`, and run `proto2json.py` to obtain `packet_serialization.json`. For the global version (OSREL), the file name `private_key_4.pem` should be changed to `private_key_5.pem` in the function rsa_decrypt in `iridium-bruteforce.py` .
 
 
