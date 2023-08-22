@@ -67,6 +67,13 @@ def parse(byte_str, packet_id: str, *args):
                     if encoding_rules[data_id][0] == "enum":
                         enum_encode = encoding_rules[data_id][1]
                         decode_data[prop_names[data_id]] = enum_encode[str(data)]
+                elif encoding_rules[data_id] in ["int32", "int64"]:
+                    if data >> 63:
+                        data = -((data ^ 0xFFFFFFFFFFFFFFFF) + 1)  # uint转int
+                    decode_data[prop_names[data_id]] = data
+                elif encoding_rules[data_id] in ["sint32", "sint64"]:
+                    data = (data >> 1) ^ -(data & 1)
+                    decode_data[prop_names[data_id]] = data
                 else:
                     decode_data[prop_names[data_id]] = data
                 i += offset
@@ -75,8 +82,8 @@ def parse(byte_str, packet_id: str, *args):
                 if encoding_rules[data_id] == "double":
                     decode_data[prop_names[data_id]] = struct.unpack("<d", byte_str[i:i + 8])[0]
                 elif encoding_rules[data_id] == "sfixed64":
-                    num = int.from_bytes(byte_str[i:i + 8], byteorder="little", signed=False)
-                    decode_data[prop_names[data_id]] = num / 2 if num % 2 == 0 else -(num + 1) / 2
+                    decode_data[prop_names[data_id]] = int.from_bytes(byte_str[i:i + 8], byteorder="little",
+                                                                      signed=True)
                 elif encoding_rules[data_id] == "fixed64":
                     decode_data[prop_names[data_id]] = int.from_bytes(byte_str[i:i + 8], byteorder="little",
                                                                       signed=False)
@@ -85,8 +92,8 @@ def parse(byte_str, packet_id: str, *args):
                 if encoding_rules[data_id] == "float":
                     decode_data[prop_names[data_id]] = struct.unpack("<f", byte_str[i:i + 4])[0]
                 elif encoding_rules[data_id] == "sfixed32":
-                    num = int.from_bytes(byte_str[i:i + 4], byteorder="little", signed=False)
-                    decode_data[prop_names[data_id]] = num / 2 if num % 2 == 0 else -(num + 1) / 2
+                    decode_data[prop_names[data_id]] = int.from_bytes(byte_str[i:i + 4], byteorder="little",
+                                                                      signed=True)
                 elif encoding_rules[data_id] == "fixed32":
                     decode_data[prop_names[data_id]] = int.from_bytes(byte_str[i:i + 4], byteorder="little",
                                                                       signed=False)
